@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 import {
   Card,
   Typography,
@@ -29,19 +30,19 @@ export function DefaultSidebar() {
           <ListItemPrefix>
             <PresentationChartBarIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Dashboard
+          <NavLink to="/">Dashboard</NavLink>
         </ListItem>
         <ListItem>
           <ListItemPrefix>
             <ShoppingBagIcon className="h-5 w-5" />
           </ListItemPrefix>
-          E-Commerce
+          <NavLink to="/user-management">User Management</NavLink>
         </ListItem>
         <ListItem>
           <ListItemPrefix>
             <InboxIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Inbox
+          <NavLink to="/view-report">View Report</NavLink>
           <ListItemSuffix>
             <Chip
               value="14"
@@ -56,13 +57,13 @@ export function DefaultSidebar() {
           <ListItemPrefix>
             <UserCircleIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Profile
+          <NavLink to="/profile">Profile</NavLink>
         </ListItem>
         <ListItem>
           <ListItemPrefix>
             <Cog6ToothIcon className="h-5 w-5" />
           </ListItemPrefix>
-          Settings
+          <NavLink to="/setting">Setting</NavLink>
         </ListItem>
         <ListItem>
           <ListItemPrefix>
