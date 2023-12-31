@@ -21,7 +21,14 @@ const router = createBrowserRouter(
       <Route path="" element={<AuthRoutes />}>
         <Route path="" element={<RoleRoutes allowedRoles={["admin"]} />}>
           <Route path="/view-report" element={<ViewReport />} />
+          <Route path="/admin" element={<div>For admin</div>} />
           <Route path="/user-management" element={<UserManagement />} />
+        </Route>
+        <Route
+          path=""
+          element={<RoleRoutes allowedRoles={["manager", "admin"]} />}
+        >
+          <Route path="/manager" element={<div>For manager</div>} />
         </Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/setting" element={<Setting />} />
