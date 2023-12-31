@@ -3,9 +3,9 @@ import { Navigate, Outlet } from "react-router-dom"
 
 // eslint-disable-next-line react/prop-types
 const RoleRoutes = ({ allowedRoles }) => {
-  const { role } = useSelector((state) => state.auth.authUser)
+  const { roles } = useSelector((state) => state.auth.authUser)
   // eslint-disable-next-line react/prop-types
-  const hasRoles = allowedRoles.includes(role)
+  const hasRoles = roles.some((role) => allowedRoles.includes(role))
   return hasRoles ? <Outlet /> : <Navigate to="/" />
 }
 

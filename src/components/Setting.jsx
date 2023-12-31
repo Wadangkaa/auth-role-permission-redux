@@ -1,27 +1,50 @@
-import { Radio } from "@material-tailwind/react"
+import { Button, Checkbox, Radio } from "@material-tailwind/react"
 import { useDispatch } from "react-redux"
 import { addAuthUser } from "../features/authSlice"
+import { useState } from "react"
+import { ROLE } from "../enums/role"
 
 const Setting = () => {
   const dispatch = useDispatch()
-  const onRoleSelect = (role) => {
-    dispatch(addAuthUser({ username: "david", role }))
+
+  const [isAdmin, setIsAdmin] = useState(false)
+  const [isManager, setIsManager] = useState(false)
+  const [isUser, setIsUser] = useState(false)
+
+  const handleRoleAssign = () => {
+    const roles = []
+    if (isAdmin) roles.push(ROLE.ADMIN)
+    if (isManager) roles.push(ROLE.MANAGER)
+    if (isUser) roles.push(ROLE.USER)
+
+    dispatch(addAuthUser({ username: "david", roles }))
   }
+
   return (
     <>
-      <h1>Login as:</h1>
-      <div>
-        <Radio
-          name="role"
+      <div className="flex flex-col">
+        <div>Roles:</div>
+        <Checkbox
+          color="blue"
           label="admin"
-          onClick={() => onRoleSelect("admin")}
+          checked={isAdmin}
+          onChange={() => setIsAdmin(!isAdmin)}
         />
-        <Radio
-          name="role"
+        <Checkbox
+          color="blue"
           label="manager"
-          onClick={() => onRoleSelect("manager")}
+          checked={isManager}
+          onChange={() => setIsManager(!isManager)}
         />
-        <Radio name="role" label="user" onClick={() => onRoleSelect("user")} />
+        <Checkbox
+          color="blue"
+          label="user"
+          checked={isUser}
+          onChange={() => setIsUser(!isUser)}
+        />
+        <Button type="submit" color="blue" onClick={handleRoleAssign}>
+          Assign
+        </Button>
       </div>
     </>
   )

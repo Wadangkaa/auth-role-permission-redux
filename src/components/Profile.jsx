@@ -7,7 +7,14 @@ const Profile = () => {
       <div>Profile</div>
       <div className="my-6 flex flex-col">
         <div>Username: {authUser.username}</div>
-        <div>Role: {authUser.role}</div>
+        <div>
+          Roles:
+          <ul>
+            {authUser.roles.map((role) => (
+              <li key={role}>{role}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   )

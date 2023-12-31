@@ -20,7 +20,7 @@ import { useSelector } from "react-redux"
 import { ROLE } from "../enums/role"
 
 export function DefaultSidebar() {
-  const { role } = useSelector((state) => state.auth.authUser)
+  const { roles } = useSelector((state) => state.auth.authUser)
 
   return (
     <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
@@ -30,7 +30,7 @@ export function DefaultSidebar() {
         </Typography>
       </div>
       <List>
-        {role == ROLE.ADMIN && (
+        {roles.some((role) => [ROLE.ADMIN].includes(role)) && (
           <ListItem>
             <ListItemPrefix>
               <Cog6ToothIcon className="h-5 w-5" />
@@ -39,7 +39,7 @@ export function DefaultSidebar() {
           </ListItem>
         )}
 
-        {[ROLE.MANAGER, ROLE.ADMIN].includes(role) && (
+        {roles.some((role) => [ROLE.MANAGER, ROLE.ADMIN].includes(role)) && (
           <ListItem>
             <ListItemPrefix>
               <Cog6ToothIcon className="h-5 w-5" />
