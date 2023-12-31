@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux"
-import { Navigate, Outlet } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 
 // eslint-disable-next-line react/prop-types
-const AuthRoutes = () => {
+const AuthRoutes = ({ children }) => {
   const isLogged = useSelector((state) => state.auth.authUser)
-  return isLogged ? <Outlet /> : <Navigate to="/" />
+  return isLogged ? children : <Navigate to="/" />
 }
 
 export default AuthRoutes
