@@ -17,6 +17,7 @@ import {
   PowerIcon,
 } from "@heroicons/react/24/solid"
 import { useSelector } from "react-redux"
+import { ROLE } from "../enums/role"
 
 export function DefaultSidebar() {
   const { role } = useSelector((state) => state.auth.authUser)
@@ -29,7 +30,7 @@ export function DefaultSidebar() {
         </Typography>
       </div>
       <List>
-        {role == "admin" && (
+        {role == ROLE.ADMIN && (
           <ListItem>
             <ListItemPrefix>
               <Cog6ToothIcon className="h-5 w-5" />
@@ -38,7 +39,7 @@ export function DefaultSidebar() {
           </ListItem>
         )}
 
-        {["manager", "admin"].includes(role) && (
+        {[ROLE.MANAGER, ROLE.ADMIN].includes(role) && (
           <ListItem>
             <ListItemPrefix>
               <Cog6ToothIcon className="h-5 w-5" />
