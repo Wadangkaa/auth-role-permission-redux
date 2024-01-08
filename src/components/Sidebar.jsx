@@ -31,62 +31,76 @@ export function DefaultSidebar() {
       </div>
       <List>
         {roles.some((role) => [ROLE.ADMIN].includes(role)) && (
-          <ListItem>
-            <ListItemPrefix>
-              <Cog6ToothIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            <NavLink to="/admin">Admin</NavLink>
-          </ListItem>
+          <NavLink to="/admin">
+            <ListItem>
+              <ListItemPrefix>
+                <Cog6ToothIcon className="h-5 w-5" />
+              </ListItemPrefix>
+              Admin
+            </ListItem>
+          </NavLink>
         )}
 
         {roles.some((role) => [ROLE.MANAGER, ROLE.ADMIN].includes(role)) && (
+          <NavLink to="/manager">
+            <ListItem>
+              <ListItemPrefix>
+                <Cog6ToothIcon className="h-5 w-5" />
+              </ListItemPrefix>
+              Manager
+            </ListItem>
+          </NavLink>
+        )}
+
+        <NavLink to="/">
+          <ListItem>
+            <ListItemPrefix>
+              <PresentationChartBarIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            Dashboard
+          </ListItem>
+        </NavLink>
+        <NavLink to="/user-management">
+          <ListItem>
+            <ListItemPrefix>
+              <ShoppingBagIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            User Management
+          </ListItem>
+        </NavLink>
+        <NavLink to="/view-report">
+          <ListItem>
+            <ListItemPrefix>
+              <InboxIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            View Report
+            <ListItemSuffix>
+              <Chip
+                value="14"
+                size="sm"
+                variant="ghost"
+                color="blue-gray"
+                className="rounded-full"
+              />
+            </ListItemSuffix>
+          </ListItem>
+        </NavLink>
+        <NavLink to="/profile">
+          <ListItem>
+            <ListItemPrefix>
+              <UserCircleIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            Profile
+          </ListItem>
+        </NavLink>
+        <NavLink to="/setting">
           <ListItem>
             <ListItemPrefix>
               <Cog6ToothIcon className="h-5 w-5" />
             </ListItemPrefix>
-            <NavLink to="/manager">Manager</NavLink>
+            Setting
           </ListItem>
-        )}
-
-        <ListItem>
-          <ListItemPrefix>
-            <PresentationChartBarIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          <NavLink to="/">Dashboard</NavLink>
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <ShoppingBagIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          <NavLink to="/user-management">User Management</NavLink>
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <InboxIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          <NavLink to="/view-report">View Report</NavLink>
-          <ListItemSuffix>
-            <Chip
-              value="14"
-              size="sm"
-              variant="ghost"
-              color="blue-gray"
-              className="rounded-full"
-            />
-          </ListItemSuffix>
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <UserCircleIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          <NavLink to="/profile">Profile</NavLink>
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <Cog6ToothIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          <NavLink to="/setting">Setting</NavLink>
-        </ListItem>
+        </NavLink>
         <ListItem>
           <ListItemPrefix>
             <PowerIcon className="h-5 w-5" />
